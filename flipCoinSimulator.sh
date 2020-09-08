@@ -24,5 +24,30 @@ do
 	fi
 	((--flipcoin))
 done
-echo H $heads
-echo T $tails
+if (($heads==$tails))
+then
+	while (($heads==$tails))
+	do
+		for ((i=1;i<=2;i++))
+		do
+			flipc=$((RANDOM%2))
+			if (($flipc==1))
+			then
+				((heads++))
+			elif (($flipc==0))
+			then
+				((tails++))
+			fi
+		done
+	done
+	if [ $heads -gt $tails ]
+	then
+		echo "Ater tie, heads won by $((heads-tails))"
+	elif [ $tails -gt $heads ]
+	then
+		echo "After tie, Tails won by $((tails-heads))"
+	fi
+else
+	echo "Heads $heads"
+	echo "Tails $tails"
+fi
