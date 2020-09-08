@@ -1,0 +1,2 @@
+#! /bin/bash
+echo THIS DISPLAYS THE WINNER HEADS OR TAILS
